@@ -174,7 +174,7 @@ def create_estimator(run_config, hparams):
 
 def serving_input_fn():
     receiver_tensor = {
-        'instances': tf.placeholder(tf.string, [None])
+        'instances': tf.placeholder(tf.int32, [None])
     }
     features = {
         key: tensor
