@@ -99,7 +99,7 @@ def input_fn(filename, mode=tf.estimator.ModeKeys.EVAL,
     if mode == tf.estimator.ModeKeys.TRAIN:
         dataset = dataset.repeat(None)
     else:
-        dataset = dataset.repeat(1)
+        dataset = dataset.repeat(None)
     dataset = dataset.prefetch(buffer_size)
 
     # dataset = dataset.map(lambda x,y:(process_text(x[TEXT_FEATURE_NAME]), parse_label_column(y)))
@@ -186,6 +186,11 @@ def serving_input_fn():
 
 if __name__ == '__main__':
     # ==============另一训练方式===============
+    if not RESUME_TRAINING:
+        print("Removing previous artifacts...")
+        shutil.rmtree(model_dir, ignore_errors=True)
+    else:
+        print("Resuming training...")
     distribution = tf.contrib.distribute.MirroredStrategy(num_gpus=4)
 
     run_config = tf.estimator.RunConfig(log_step_count_steps=config.train['log_step_count_steps'],
@@ -241,6 +246,11 @@ if __name__ == '__main__':
     #     f.writelines(res)
 
     # ==============训练阶段===========================
+    # if not RESUME_TRAINING:
+    #     print("Removing previous artifacts...")
+    #     shutil.rmtree(model_dir, ignore_errors=True)
+    # else:
+    #     print("Resuming training...")
     # distribution = tf.contrib.distribute.MirroredStrategy(num_gpus=4)
     #
     # run_config = tf.estimator.RunConfig(log_step_count_steps=config.train['log_step_count_steps'],
