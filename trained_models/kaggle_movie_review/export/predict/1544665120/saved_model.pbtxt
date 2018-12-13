@@ -1,0 +1,7613 @@
+saved_model_schema_version: 1
+meta_graphs {
+  meta_info_def {
+    stripped_op_list {
+      op {
+        name: "Add"
+        input_arg {
+          name: "x"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "y"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "z"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_BFLOAT16
+              type: DT_HALF
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_UINT8
+              type: DT_INT8
+              type: DT_INT16
+              type: DT_INT32
+              type: DT_INT64
+              type: DT_COMPLEX64
+              type: DT_COMPLEX128
+              type: DT_STRING
+            }
+          }
+        }
+      }
+      op {
+        name: "ArgMax"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "dimension"
+          type_attr: "Tidx"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "output_type"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_INT32
+              type: DT_UINT8
+              type: DT_INT16
+              type: DT_INT8
+              type: DT_COMPLEX64
+              type: DT_INT64
+              type: DT_QINT8
+              type: DT_QUINT8
+              type: DT_QINT32
+              type: DT_BFLOAT16
+              type: DT_UINT16
+              type: DT_COMPLEX128
+              type: DT_HALF
+              type: DT_UINT32
+              type: DT_UINT64
+            }
+          }
+        }
+        attr {
+          name: "Tidx"
+          type: "type"
+          default_value {
+            type: DT_INT32
+          }
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+        attr {
+          name: "output_type"
+          type: "type"
+          default_value {
+            type: DT_INT64
+          }
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "Assign"
+        input_arg {
+          name: "ref"
+          type_attr: "T"
+          is_ref: true
+        }
+        input_arg {
+          name: "value"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "output_ref"
+          type_attr: "T"
+          is_ref: true
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "validate_shape"
+          type: "bool"
+          default_value {
+            b: true
+          }
+        }
+        attr {
+          name: "use_locking"
+          type: "bool"
+          default_value {
+            b: true
+          }
+        }
+        allows_uninitialized_input: true
+      }
+      op {
+        name: "BiasAdd"
+        input_arg {
+          name: "value"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "bias"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_INT32
+              type: DT_UINT8
+              type: DT_INT16
+              type: DT_INT8
+              type: DT_COMPLEX64
+              type: DT_INT64
+              type: DT_QINT8
+              type: DT_QUINT8
+              type: DT_QINT32
+              type: DT_BFLOAT16
+              type: DT_UINT16
+              type: DT_COMPLEX128
+              type: DT_HALF
+              type: DT_UINT32
+              type: DT_UINT64
+            }
+          }
+        }
+        attr {
+          name: "data_format"
+          type: "string"
+          default_value {
+            s: "NHWC"
+          }
+          allowed_values {
+            list {
+              s: "NHWC"
+              s: "NCHW"
+            }
+          }
+        }
+      }
+      op {
+        name: "ConcatV2"
+        input_arg {
+          name: "values"
+          type_attr: "T"
+          number_attr: "N"
+        }
+        input_arg {
+          name: "axis"
+          type_attr: "Tidx"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "N"
+          type: "int"
+          has_minimum: true
+          minimum: 2
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "Tidx"
+          type: "type"
+          default_value {
+            type: DT_INT32
+          }
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "Const"
+        output_arg {
+          name: "output"
+          type_attr: "dtype"
+        }
+        attr {
+          name: "value"
+          type: "tensor"
+        }
+        attr {
+          name: "dtype"
+          type: "type"
+        }
+      }
+      op {
+        name: "Conv2D"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "filter"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_HALF
+              type: DT_BFLOAT16
+              type: DT_FLOAT
+              type: DT_DOUBLE
+            }
+          }
+        }
+        attr {
+          name: "strides"
+          type: "list(int)"
+        }
+        attr {
+          name: "use_cudnn_on_gpu"
+          type: "bool"
+          default_value {
+            b: true
+          }
+        }
+        attr {
+          name: "padding"
+          type: "string"
+          allowed_values {
+            list {
+              s: "SAME"
+              s: "VALID"
+            }
+          }
+        }
+        attr {
+          name: "data_format"
+          type: "string"
+          default_value {
+            s: "NHWC"
+          }
+          allowed_values {
+            list {
+              s: "NHWC"
+              s: "NCHW"
+            }
+          }
+        }
+        attr {
+          name: "dilations"
+          type: "list(int)"
+          default_value {
+            list {
+              i: 1
+              i: 1
+              i: 1
+              i: 1
+            }
+          }
+        }
+      }
+      op {
+        name: "ExpandDims"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "dim"
+          type_attr: "Tdim"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "Tdim"
+          type: "type"
+          default_value {
+            type: DT_INT32
+          }
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "GatherV2"
+        input_arg {
+          name: "params"
+          type_attr: "Tparams"
+        }
+        input_arg {
+          name: "indices"
+          type_attr: "Tindices"
+        }
+        input_arg {
+          name: "axis"
+          type_attr: "Taxis"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "Tparams"
+        }
+        attr {
+          name: "Tparams"
+          type: "type"
+        }
+        attr {
+          name: "Tindices"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+        attr {
+          name: "Taxis"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "HashTableV2"
+        output_arg {
+          name: "table_handle"
+          type: DT_RESOURCE
+        }
+        attr {
+          name: "container"
+          type: "string"
+          default_value {
+            s: ""
+          }
+        }
+        attr {
+          name: "shared_name"
+          type: "string"
+          default_value {
+            s: ""
+          }
+        }
+        attr {
+          name: "use_node_name_sharing"
+          type: "bool"
+          default_value {
+            b: false
+          }
+        }
+        attr {
+          name: "key_dtype"
+          type: "type"
+        }
+        attr {
+          name: "value_dtype"
+          type: "type"
+        }
+        is_stateful: true
+      }
+      op {
+        name: "Identity"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+      }
+      op {
+        name: "InitializeTableFromTextFileV2"
+        input_arg {
+          name: "table_handle"
+          type: DT_RESOURCE
+        }
+        input_arg {
+          name: "filename"
+          type: DT_STRING
+        }
+        attr {
+          name: "key_index"
+          type: "int"
+          has_minimum: true
+          minimum: -2
+        }
+        attr {
+          name: "value_index"
+          type: "int"
+          has_minimum: true
+          minimum: -2
+        }
+        attr {
+          name: "vocab_size"
+          type: "int"
+          default_value {
+            i: -1
+          }
+          has_minimum: true
+          minimum: -1
+        }
+        attr {
+          name: "delimiter"
+          type: "string"
+          default_value {
+            s: "\t"
+          }
+        }
+        is_stateful: true
+      }
+      op {
+        name: "LookupTableFindV2"
+        input_arg {
+          name: "table_handle"
+          type: DT_RESOURCE
+        }
+        input_arg {
+          name: "keys"
+          type_attr: "Tin"
+        }
+        input_arg {
+          name: "default_value"
+          type_attr: "Tout"
+        }
+        output_arg {
+          name: "values"
+          type_attr: "Tout"
+        }
+        attr {
+          name: "Tin"
+          type: "type"
+        }
+        attr {
+          name: "Tout"
+          type: "type"
+        }
+        is_stateful: true
+      }
+      op {
+        name: "MatMul"
+        input_arg {
+          name: "a"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "b"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "product"
+          type_attr: "T"
+        }
+        attr {
+          name: "transpose_a"
+          type: "bool"
+          default_value {
+            b: false
+          }
+        }
+        attr {
+          name: "transpose_b"
+          type: "bool"
+          default_value {
+            b: false
+          }
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_BFLOAT16
+              type: DT_HALF
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_INT32
+              type: DT_COMPLEX64
+              type: DT_COMPLEX128
+            }
+          }
+        }
+      }
+      op {
+        name: "MaxPool"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          default_value {
+            type: DT_FLOAT
+          }
+          allowed_values {
+            list {
+              type: DT_HALF
+              type: DT_BFLOAT16
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_INT32
+              type: DT_INT64
+              type: DT_UINT8
+              type: DT_INT16
+              type: DT_INT8
+              type: DT_UINT16
+              type: DT_QINT8
+            }
+          }
+        }
+        attr {
+          name: "ksize"
+          type: "list(int)"
+          has_minimum: true
+          minimum: 4
+        }
+        attr {
+          name: "strides"
+          type: "list(int)"
+          has_minimum: true
+          minimum: 4
+        }
+        attr {
+          name: "padding"
+          type: "string"
+          allowed_values {
+            list {
+              s: "SAME"
+              s: "VALID"
+            }
+          }
+        }
+        attr {
+          name: "data_format"
+          type: "string"
+          default_value {
+            s: "NHWC"
+          }
+          allowed_values {
+            list {
+              s: "NHWC"
+              s: "NCHW"
+              s: "NCHW_VECT_C"
+            }
+          }
+        }
+      }
+      op {
+        name: "MergeV2Checkpoints"
+        input_arg {
+          name: "checkpoint_prefixes"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "destination_prefix"
+          type: DT_STRING
+        }
+        attr {
+          name: "delete_old_dirs"
+          type: "bool"
+          default_value {
+            b: true
+          }
+        }
+        is_stateful: true
+      }
+      op {
+        name: "Mul"
+        input_arg {
+          name: "x"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "y"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "z"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_BFLOAT16
+              type: DT_HALF
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_UINT8
+              type: DT_INT8
+              type: DT_UINT16
+              type: DT_INT16
+              type: DT_INT32
+              type: DT_INT64
+              type: DT_COMPLEX64
+              type: DT_COMPLEX128
+            }
+          }
+        }
+        is_commutative: true
+      }
+      op {
+        name: "NoOp"
+      }
+      op {
+        name: "Pack"
+        input_arg {
+          name: "values"
+          type_attr: "T"
+          number_attr: "N"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "N"
+          type: "int"
+          has_minimum: true
+          minimum: 1
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "axis"
+          type: "int"
+          default_value {
+            i: 0
+          }
+        }
+      }
+      op {
+        name: "Pad"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "paddings"
+          type_attr: "Tpaddings"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "Tpaddings"
+          type: "type"
+          default_value {
+            type: DT_INT32
+          }
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "Placeholder"
+        output_arg {
+          name: "output"
+          type_attr: "dtype"
+        }
+        attr {
+          name: "dtype"
+          type: "type"
+        }
+        attr {
+          name: "shape"
+          type: "shape"
+          default_value {
+            shape {
+              unknown_rank: true
+            }
+          }
+        }
+      }
+      op {
+        name: "RandomUniform"
+        input_arg {
+          name: "shape"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "dtype"
+        }
+        attr {
+          name: "seed"
+          type: "int"
+          default_value {
+            i: 0
+          }
+        }
+        attr {
+          name: "seed2"
+          type: "int"
+          default_value {
+            i: 0
+          }
+        }
+        attr {
+          name: "dtype"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_HALF
+              type: DT_BFLOAT16
+              type: DT_FLOAT
+              type: DT_DOUBLE
+            }
+          }
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+        is_stateful: true
+      }
+      op {
+        name: "Relu"
+        input_arg {
+          name: "features"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "activations"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_INT32
+              type: DT_UINT8
+              type: DT_INT16
+              type: DT_INT8
+              type: DT_INT64
+              type: DT_BFLOAT16
+              type: DT_UINT16
+              type: DT_HALF
+              type: DT_UINT32
+              type: DT_UINT64
+              type: DT_QINT8
+            }
+          }
+        }
+      }
+      op {
+        name: "Reshape"
+        input_arg {
+          name: "tensor"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "shape"
+          type_attr: "Tshape"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "Tshape"
+          type: "type"
+          default_value {
+            type: DT_INT32
+          }
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "RestoreV2"
+        input_arg {
+          name: "prefix"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "tensor_names"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "shape_and_slices"
+          type: DT_STRING
+        }
+        output_arg {
+          name: "tensors"
+          type_list_attr: "dtypes"
+        }
+        attr {
+          name: "dtypes"
+          type: "list(type)"
+          has_minimum: true
+          minimum: 1
+        }
+        is_stateful: true
+      }
+      op {
+        name: "SaveV2"
+        input_arg {
+          name: "prefix"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "tensor_names"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "shape_and_slices"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "tensors"
+          type_list_attr: "dtypes"
+        }
+        attr {
+          name: "dtypes"
+          type: "list(type)"
+          has_minimum: true
+          minimum: 1
+        }
+        is_stateful: true
+      }
+      op {
+        name: "ShardedFilename"
+        input_arg {
+          name: "basename"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "shard"
+          type: DT_INT32
+        }
+        input_arg {
+          name: "num_shards"
+          type: DT_INT32
+        }
+        output_arg {
+          name: "filename"
+          type: DT_STRING
+        }
+      }
+      op {
+        name: "Slice"
+        input_arg {
+          name: "input"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "begin"
+          type_attr: "Index"
+        }
+        input_arg {
+          name: "size"
+          type_attr: "Index"
+        }
+        output_arg {
+          name: "output"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "Index"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "Softmax"
+        input_arg {
+          name: "logits"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "softmax"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_HALF
+              type: DT_BFLOAT16
+              type: DT_FLOAT
+              type: DT_DOUBLE
+            }
+          }
+        }
+      }
+      op {
+        name: "SparseToDense"
+        input_arg {
+          name: "sparse_indices"
+          type_attr: "Tindices"
+        }
+        input_arg {
+          name: "output_shape"
+          type_attr: "Tindices"
+        }
+        input_arg {
+          name: "sparse_values"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "default_value"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "dense"
+          type_attr: "T"
+        }
+        attr {
+          name: "validate_indices"
+          type: "bool"
+          default_value {
+            b: true
+          }
+        }
+        attr {
+          name: "T"
+          type: "type"
+        }
+        attr {
+          name: "Tindices"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_INT32
+              type: DT_INT64
+            }
+          }
+        }
+      }
+      op {
+        name: "StringJoin"
+        input_arg {
+          name: "inputs"
+          type: DT_STRING
+          number_attr: "N"
+        }
+        output_arg {
+          name: "output"
+          type: DT_STRING
+        }
+        attr {
+          name: "N"
+          type: "int"
+          has_minimum: true
+          minimum: 1
+        }
+        attr {
+          name: "separator"
+          type: "string"
+          default_value {
+            s: ""
+          }
+        }
+      }
+      op {
+        name: "StringSplit"
+        input_arg {
+          name: "input"
+          type: DT_STRING
+        }
+        input_arg {
+          name: "delimiter"
+          type: DT_STRING
+        }
+        output_arg {
+          name: "indices"
+          type: DT_INT64
+        }
+        output_arg {
+          name: "values"
+          type: DT_STRING
+        }
+        output_arg {
+          name: "shape"
+          type: DT_INT64
+        }
+        attr {
+          name: "skip_empty"
+          type: "bool"
+          default_value {
+            b: true
+          }
+        }
+      }
+      op {
+        name: "Sub"
+        input_arg {
+          name: "x"
+          type_attr: "T"
+        }
+        input_arg {
+          name: "y"
+          type_attr: "T"
+        }
+        output_arg {
+          name: "z"
+          type_attr: "T"
+        }
+        attr {
+          name: "T"
+          type: "type"
+          allowed_values {
+            list {
+              type: DT_BFLOAT16
+              type: DT_HALF
+              type: DT_FLOAT
+              type: DT_DOUBLE
+              type: DT_UINT8
+              type: DT_INT8
+              type: DT_UINT16
+              type: DT_INT16
+              type: DT_INT32
+              type: DT_INT64
+              type: DT_COMPLEX64
+              type: DT_COMPLEX128
+            }
+          }
+        }
+      }
+      op {
+        name: "VariableV2"
+        output_arg {
+          name: "ref"
+          type_attr: "dtype"
+          is_ref: true
+        }
+        attr {
+          name: "shape"
+          type: "shape"
+        }
+        attr {
+          name: "dtype"
+          type: "type"
+        }
+        attr {
+          name: "container"
+          type: "string"
+          default_value {
+            s: ""
+          }
+        }
+        attr {
+          name: "shared_name"
+          type: "string"
+          default_value {
+            s: ""
+          }
+        }
+        is_stateful: true
+      }
+    }
+    tags: "serve"
+    tensorflow_version: "1.12.0"
+    tensorflow_git_version: "v1.12.0-0-ga6d8ffae09"
+    stripped_default_attrs: true
+  }
+  graph_def {
+    node {
+      name: "global_step/Initializer/zeros"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@global_step"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+            }
+            int64_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "global_step"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@global_step"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+          }
+        }
+      }
+    }
+    node {
+      name: "global_step/Assign"
+      op: "Assign"
+      input: "global_step"
+      input: "global_step/Initializer/zeros"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@global_step"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "global_step/read"
+      op: "Identity"
+      input: "global_step"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@global_step"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "Placeholder"
+      op: "Placeholder"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: -1
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "Const"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: " "
+          }
+        }
+      }
+    }
+    node {
+      name: "StringSplit"
+      op: "StringSplit"
+      input: "Placeholder"
+      input: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 2
+              }
+            }
+            shape {
+              dim {
+                size: -1
+              }
+            }
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "SparseToDense/default_value"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: "<pad>"
+          }
+        }
+      }
+    }
+    node {
+      name: "SparseToDense"
+      op: "SparseToDense"
+      input: "StringSplit"
+      input: "StringSplit:2"
+      input: "StringSplit:1"
+      input: "SparseToDense/default_value"
+      attr {
+        key: "T"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "Tindices"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: -1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "string_to_index/hash_table"
+      op: "HashTableV2"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "key_dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "shared_name"
+        value {
+          s: "hash_table_data/kaggle_processed_data/vocab_-2_-1"
+        }
+      }
+      attr {
+        key: "value_dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    node {
+      name: "string_to_index/hash_table/Const"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+            }
+            int64_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "string_to_index/hash_table/table_init/asset_filepath"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: "data/kaggle_processed_data/vocab"
+          }
+        }
+      }
+    }
+    node {
+      name: "string_to_index/hash_table/table_init"
+      op: "InitializeTableFromTextFileV2"
+      input: "string_to_index/hash_table"
+      input: "string_to_index/hash_table/table_init/asset_filepath"
+      attr {
+        key: "key_index"
+        value {
+          i: -2
+        }
+      }
+      attr {
+        key: "value_index"
+        value {
+          i: -1
+        }
+      }
+    }
+    node {
+      name: "hash_table_Lookup"
+      op: "LookupTableFindV2"
+      input: "string_to_index/hash_table"
+      input: "SparseToDense"
+      input: "string_to_index/hash_table/Const"
+      attr {
+        key: "Tin"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "Tout"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: -1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "Const_1"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\000\000\000\000\000\000\000\000\000\000\000\0002\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Pad"
+      op: "Pad"
+      input: "hash_table_Lookup"
+      input: "Const_1"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: -1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "Slice/begin"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\000\000\000\000\000\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Slice/size"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\3772\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "Slice"
+      op: "Slice"
+      input: "Pad"
+      input: "Slice/begin"
+      input: "Slice/size"
+      attr {
+        key: "Index"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 50
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform/shape"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "L;\000\000,\001\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform/min"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: -0.019687481224536896
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform/max"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.019687481224536896
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform/RandomUniform"
+      op: "RandomUniform"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 1234
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 22
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform/sub"
+      op: "Sub"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/max"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform/mul"
+      op: "Mul"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/RandomUniform"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/sub"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Initializer/random_uniform"
+      op: "Add"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/mul"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 15180
+            }
+            dim {
+              size: 300
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/Assign"
+      op: "Assign"
+      input: "EmbedSequence/embeddings"
+      input: "EmbedSequence/embeddings/Initializer/random_uniform"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embeddings/read"
+      op: "Identity"
+      input: "EmbedSequence/embeddings"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embedding_lookup/axis"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embedding_lookup"
+      op: "GatherV2"
+      input: "EmbedSequence/embeddings/read"
+      input: "Slice"
+      input: "EmbedSequence/embedding_lookup/axis"
+      attr {
+        key: "Taxis"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "Tindices"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "Tparams"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 50
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "EmbedSequence/embedding_lookup/Identity"
+      op: "Identity"
+      input: "EmbedSequence/embedding_lookup"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 50
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "ExpandDims/dim"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: -1
+          }
+        }
+      }
+    }
+    node {
+      name: "ExpandDims"
+      op: "ExpandDims"
+      input: "EmbedSequence/embedding_lookup/Identity"
+      input: "ExpandDims/dim"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 50
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\002\000\000\000,\001\000\000\001\000\000\000\000\001\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/min"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: -0.006237828638404608
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/max"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.006237828638404608
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      op: "RandomUniform"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 1234
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 37
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      op: "Sub"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/max"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      op: "Mul"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform"
+      op: "Add"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 2
+            }
+            dim {
+              size: 300
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/kernel/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/bias/Initializer/zeros"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+              dim {
+                size: 256
+              }
+            }
+            float_val: 0.0
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/bias/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/bias/Initializer/zeros"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/bias/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/dilation_rate"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\001\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/Conv2D"
+      op: "Conv2D"
+      input: "ExpandDims"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 49
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/BiasAdd"
+      op: "BiasAdd"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/Conv2D"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/bias/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 49
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/conv2d/Relu"
+      op: "Relu"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/BiasAdd"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 49
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-2-filter/max_pooling2d/MaxPool"
+      op: "MaxPool"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/Relu"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "ksize"
+        value {
+          list {
+            i: 1
+            i: 49
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\003\000\000\000,\001\000\000\001\000\000\000\000\001\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/min"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: -0.005093165673315525
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/max"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.005093165673315525
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      op: "RandomUniform"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 1234
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 56
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      op: "Sub"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/max"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      op: "Mul"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform"
+      op: "Add"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 3
+            }
+            dim {
+              size: 300
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/kernel/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/bias/Initializer/zeros"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+              dim {
+                size: 256
+              }
+            }
+            float_val: 0.0
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/bias/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/bias/Initializer/zeros"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/bias/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/dilation_rate"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\001\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/Conv2D"
+      op: "Conv2D"
+      input: "ExpandDims"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 48
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/BiasAdd"
+      op: "BiasAdd"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/Conv2D"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/bias/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 48
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/conv2d/Relu"
+      op: "Relu"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/BiasAdd"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 48
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-3-filter/max_pooling2d/MaxPool"
+      op: "MaxPool"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/Relu"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "ksize"
+        value {
+          list {
+            i: 1
+            i: 48
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\004\000\000\000,\001\000\000\001\000\000\000\000\001\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/min"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: -0.0044108107686042786
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/max"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.0044108107686042786
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      op: "RandomUniform"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 1234
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 75
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      op: "Sub"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/max"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      op: "Mul"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform"
+      op: "Add"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 4
+            }
+            dim {
+              size: 300
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/kernel/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/bias/Initializer/zeros"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+              dim {
+                size: 256
+              }
+            }
+            float_val: 0.0
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/bias/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/bias/Initializer/zeros"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/bias/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/dilation_rate"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\001\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/Conv2D"
+      op: "Conv2D"
+      input: "ExpandDims"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 47
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/BiasAdd"
+      op: "BiasAdd"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/Conv2D"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/bias/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 47
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/conv2d/Relu"
+      op: "Relu"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/BiasAdd"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 47
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-4-filter/max_pooling2d/MaxPool"
+      op: "MaxPool"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/Relu"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "ksize"
+        value {
+          list {
+            i: 1
+            i: 47
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 4
+              }
+            }
+            tensor_content: "\005\000\000\000,\001\000\000\001\000\000\000\000\001\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/min"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: -0.003945149015635252
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/max"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.003945149015635252
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      op: "RandomUniform"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 1234
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 94
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      op: "Sub"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/max"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      op: "Mul"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/RandomUniform"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/sub"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform"
+      op: "Add"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/mul"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 5
+            }
+            dim {
+              size: 300
+            }
+            dim {
+              size: 1
+            }
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/kernel/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/bias/Initializer/zeros"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+              dim {
+                size: 256
+              }
+            }
+            float_val: 0.0
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 256
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/bias/Assign"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/bias/Initializer/zeros"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/bias/read"
+      op: "Identity"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/dilation_rate"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\001\000\000\000\001\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/Conv2D"
+      op: "Conv2D"
+      input: "ExpandDims"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 46
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/BiasAdd"
+      op: "BiasAdd"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/Conv2D"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/bias/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 46
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/conv2d/Relu"
+      op: "Relu"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/BiasAdd"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 46
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/conv-maxpool-5-filter/max_pooling2d/MaxPool"
+      op: "MaxPool"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/Relu"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "ksize"
+        value {
+          list {
+            i: 1
+            i: 46
+            i: 1
+            i: 1
+          }
+        }
+      }
+      attr {
+        key: "padding"
+        value {
+          s: "VALID"
+        }
+      }
+      attr {
+        key: "strides"
+        value {
+          list {
+            i: 1
+            i: 1
+            i: 1
+            i: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/concat/axis"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 3
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/concat"
+      op: "ConcatV2"
+      input: "convolutions/conv-maxpool-2-filter/max_pooling2d/MaxPool"
+      input: "convolutions/conv-maxpool-3-filter/max_pooling2d/MaxPool"
+      input: "convolutions/conv-maxpool-4-filter/max_pooling2d/MaxPool"
+      input: "convolutions/conv-maxpool-5-filter/max_pooling2d/MaxPool"
+      input: "convolutions/concat/axis"
+      attr {
+        key: "N"
+        value {
+          i: 4
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 1024
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/Reshape/shape"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\377\377\377\377\000\004\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/Reshape"
+      op: "Reshape"
+      input: "convolutions/concat"
+      input: "convolutions/Reshape/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1024
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "convolutions/dropout/Identity"
+      op: "Identity"
+      input: "convolutions/Reshape"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 1024
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform/shape"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+              dim {
+                size: 2
+              }
+            }
+            tensor_content: "\000\004\000\000\005\000\000\000"
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform/min"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: -0.07636035233736038
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform/max"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+            }
+            float_val: 0.07636035233736038
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform/RandomUniform"
+      op: "RandomUniform"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/shape"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "seed"
+        value {
+          i: 1234
+        }
+      }
+      attr {
+        key: "seed2"
+        value {
+          i: 118
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform/sub"
+      op: "Sub"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/max"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform/mul"
+      op: "Mul"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/RandomUniform"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/sub"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Initializer/random_uniform"
+      op: "Add"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/mul"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform/min"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 1024
+            }
+            dim {
+              size: 5
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/Assign"
+      op: "Assign"
+      input: "fully-connected/dense/kernel"
+      input: "fully-connected/dense/kernel/Initializer/random_uniform"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/kernel/read"
+      op: "Identity"
+      input: "fully-connected/dense/kernel"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/bias/Initializer/zeros"
+      op: "Const"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_FLOAT
+            tensor_shape {
+              dim {
+                size: 5
+              }
+            }
+            float_val: 0.0
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/bias"
+      op: "VariableV2"
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "shape"
+        value {
+          shape {
+            dim {
+              size: 5
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/bias/Assign"
+      op: "Assign"
+      input: "fully-connected/dense/bias"
+      input: "fully-connected/dense/bias/Initializer/zeros"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/bias/read"
+      op: "Identity"
+      input: "fully-connected/dense/bias"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/MatMul"
+      op: "MatMul"
+      input: "convolutions/dropout/Identity"
+      input: "fully-connected/dense/kernel/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "fully-connected/dense/BiasAdd"
+      op: "BiasAdd"
+      input: "fully-connected/dense/MatMul"
+      input: "fully-connected/dense/bias/read"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "Softmax"
+      op: "Softmax"
+      input: "fully-connected/dense/BiasAdd"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "ArgMax/dimension"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "ArgMax"
+      op: "ArgMax"
+      input: "Softmax"
+      input: "ArgMax/dimension"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "GatherV2/params"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 5
+              }
+            }
+            string_val: "0"
+            string_val: "1"
+            string_val: "2"
+            string_val: "3"
+            string_val: "4"
+          }
+        }
+      }
+    }
+    node {
+      name: "GatherV2/axis"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "GatherV2"
+      op: "GatherV2"
+      input: "GatherV2/params"
+      input: "ArgMax"
+      input: "GatherV2/axis"
+      attr {
+        key: "Taxis"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "Tindices"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "Tparams"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: -1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "init"
+      op: "NoOp"
+    }
+    node {
+      name: "init_all_tables"
+      op: "NoOp"
+      input: "^string_to_index/hash_table/table_init"
+    }
+    node {
+      name: "init_1"
+      op: "NoOp"
+    }
+    node {
+      name: "group_deps"
+      op: "NoOp"
+      input: "^init"
+      input: "^init_1"
+      input: "^init_all_tables"
+    }
+    node {
+      name: "save/Const"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: "model"
+          }
+        }
+      }
+    }
+    node {
+      name: "save/StringJoin/inputs_1"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+            }
+            string_val: "_temp_066a58e0afea4cb2bfdbbcd9d8092b0d/part"
+          }
+        }
+      }
+    }
+    node {
+      name: "save/StringJoin"
+      op: "StringJoin"
+      input: "save/Const"
+      input: "save/StringJoin/inputs_1"
+      attr {
+        key: "N"
+        value {
+          i: 2
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/num_shards"
+      op: "Const"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 1
+          }
+        }
+      }
+    }
+    node {
+      name: "save/ShardedFilename/shard"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT32
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT32
+            tensor_shape {
+            }
+            int_val: 0
+          }
+        }
+      }
+    }
+    node {
+      name: "save/ShardedFilename"
+      op: "ShardedFilename"
+      input: "save/StringJoin"
+      input: "save/ShardedFilename/shard"
+      input: "save/num_shards"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/SaveV2/tensor_names"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 12
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 12
+              }
+            }
+            string_val: "EmbedSequence/embeddings"
+            string_val: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+            string_val: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+            string_val: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+            string_val: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+            string_val: "fully-connected/dense/bias"
+            string_val: "fully-connected/dense/kernel"
+            string_val: "global_step"
+          }
+        }
+      }
+    }
+    node {
+      name: "save/SaveV2/shape_and_slices"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 12
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 12
+              }
+            }
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "save/SaveV2"
+      op: "SaveV2"
+      input: "save/ShardedFilename"
+      input: "save/SaveV2/tensor_names"
+      input: "save/SaveV2/shape_and_slices"
+      input: "EmbedSequence/embeddings"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+      input: "fully-connected/dense/bias"
+      input: "fully-connected/dense/kernel"
+      input: "global_step"
+      device: "/device:CPU:0"
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_INT64
+          }
+        }
+      }
+    }
+    node {
+      name: "save/control_dependency"
+      op: "Identity"
+      input: "save/ShardedFilename"
+      input: "^save/SaveV2"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@save/ShardedFilename"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/MergeV2Checkpoints/checkpoint_prefixes"
+      op: "Pack"
+      input: "save/ShardedFilename"
+      input: "^save/control_dependency"
+      device: "/device:CPU:0"
+      attr {
+        key: "N"
+        value {
+          i: 1
+        }
+      }
+      attr {
+        key: "T"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/MergeV2Checkpoints"
+      op: "MergeV2Checkpoints"
+      input: "save/MergeV2Checkpoints/checkpoint_prefixes"
+      input: "save/Const"
+      device: "/device:CPU:0"
+    }
+    node {
+      name: "save/Identity"
+      op: "Identity"
+      input: "save/Const"
+      input: "^save/MergeV2Checkpoints"
+      input: "^save/control_dependency"
+      device: "/device:CPU:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/RestoreV2/tensor_names"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 12
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 12
+              }
+            }
+            string_val: "EmbedSequence/embeddings"
+            string_val: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+            string_val: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+            string_val: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+            string_val: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+            string_val: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+            string_val: "fully-connected/dense/bias"
+            string_val: "fully-connected/dense/kernel"
+            string_val: "global_step"
+          }
+        }
+      }
+    }
+    node {
+      name: "save/RestoreV2/shape_and_slices"
+      op: "Const"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 12
+              }
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtype"
+        value {
+          type: DT_STRING
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_STRING
+            tensor_shape {
+              dim {
+                size: 12
+              }
+            }
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+            string_val: ""
+          }
+        }
+      }
+    }
+    node {
+      name: "save/RestoreV2"
+      op: "RestoreV2"
+      input: "save/Const"
+      input: "save/RestoreV2/tensor_names"
+      input: "save/RestoreV2/shape_and_slices"
+      device: "/device:CPU:0"
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+            shape {
+              unknown_rank: true
+            }
+          }
+        }
+      }
+      attr {
+        key: "dtypes"
+        value {
+          list {
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_FLOAT
+            type: DT_INT64
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign"
+      op: "Assign"
+      input: "EmbedSequence/embeddings"
+      input: "save/RestoreV2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@EmbedSequence/embeddings"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 15180
+              }
+              dim {
+                size: 300
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_1"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/bias"
+      input: "save/RestoreV2:1"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_2"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-2-filter/conv2d/kernel"
+      input: "save/RestoreV2:2"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-2-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 2
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_3"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/bias"
+      input: "save/RestoreV2:3"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_4"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-3-filter/conv2d/kernel"
+      input: "save/RestoreV2:4"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-3-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 3
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_5"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/bias"
+      input: "save/RestoreV2:5"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_6"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-4-filter/conv2d/kernel"
+      input: "save/RestoreV2:6"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-4-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 4
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_7"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/bias"
+      input: "save/RestoreV2:7"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_8"
+      op: "Assign"
+      input: "convolutions/conv-maxpool-5-filter/conv2d/kernel"
+      input: "save/RestoreV2:8"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@convolutions/conv-maxpool-5-filter/conv2d/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+              dim {
+                size: 300
+              }
+              dim {
+                size: 1
+              }
+              dim {
+                size: 256
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_9"
+      op: "Assign"
+      input: "fully-connected/dense/bias"
+      input: "save/RestoreV2:9"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/bias"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_10"
+      op: "Assign"
+      input: "fully-connected/dense/kernel"
+      input: "save/RestoreV2:10"
+      attr {
+        key: "T"
+        value {
+          type: DT_FLOAT
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@fully-connected/dense/kernel"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+              dim {
+                size: 1024
+              }
+              dim {
+                size: 5
+              }
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/Assign_11"
+      op: "Assign"
+      input: "global_step"
+      input: "save/RestoreV2:11"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "_class"
+        value {
+          list {
+            s: "loc:@global_step"
+          }
+        }
+      }
+      attr {
+        key: "_output_shapes"
+        value {
+          list {
+            shape {
+            }
+          }
+        }
+      }
+    }
+    node {
+      name: "save/restore_shard"
+      op: "NoOp"
+      input: "^save/Assign"
+      input: "^save/Assign_1"
+      input: "^save/Assign_10"
+      input: "^save/Assign_11"
+      input: "^save/Assign_2"
+      input: "^save/Assign_3"
+      input: "^save/Assign_4"
+      input: "^save/Assign_5"
+      input: "^save/Assign_6"
+      input: "^save/Assign_7"
+      input: "^save/Assign_8"
+      input: "^save/Assign_9"
+    }
+    node {
+      name: "save/restore_all"
+      op: "NoOp"
+      input: "^save/restore_shard"
+    }
+    versions {
+      producer: 27
+    }
+  }
+  saver_def {
+    filename_tensor_name: "save/Const:0"
+    save_tensor_name: "save/Identity:0"
+    restore_op_name: "save/restore_all"
+    max_to_keep: 5
+    sharded: true
+    keep_checkpoint_every_n_hours: 10000.0
+    version: V2
+  }
+  collection_def {
+    key: "asset_filepaths"
+    value {
+      node_list {
+        value: "string_to_index/hash_table/table_init/asset_filepath:0"
+      }
+    }
+  }
+  collection_def {
+    key: "global_step"
+    value {
+      bytes_list {
+        value: "\n\rglobal_step:0\022\022global_step/Assign\032\022global_step/read:02\037global_step/Initializer/zeros:0"
+      }
+    }
+  }
+  collection_def {
+    key: "model_variables"
+    value {
+      bytes_list {
+        value: "\n\032EmbedSequence/embeddings:0\022\037EmbedSequence/embeddings/Assign\032\037EmbedSequence/embeddings/read:025EmbedSequence/embeddings/Initializer/random_uniform:08\001"
+      }
+    }
+  }
+  collection_def {
+    key: "saved_model_assets"
+    value {
+      any_list {
+        value {
+          type_url: "type.googleapis.com/tensorflow.AssetFileDef"
+          value: "\n8\n6string_to_index/hash_table/table_init/asset_filepath:0\022\005vocab"
+        }
+      }
+    }
+  }
+  collection_def {
+    key: "saved_model_main_op"
+    value {
+      node_list {
+        value: "group_deps"
+      }
+    }
+  }
+  collection_def {
+    key: "table_initializer"
+    value {
+      node_list {
+        value: "string_to_index/hash_table/table_init"
+      }
+    }
+  }
+  collection_def {
+    key: "trainable_variables"
+    value {
+      bytes_list {
+        value: "\n\032EmbedSequence/embeddings:0\022\037EmbedSequence/embeddings/Assign\032\037EmbedSequence/embeddings/read:025EmbedSequence/embeddings/Initializer/random_uniform:08\001"
+        value: "\n2convolutions/conv-maxpool-2-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-2-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-2-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-2-filter/conv2d/bias:0\0225convolutions/conv-maxpool-2-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-2-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-2-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n2convolutions/conv-maxpool-3-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-3-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-3-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-3-filter/conv2d/bias:0\0225convolutions/conv-maxpool-3-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-3-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-3-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n2convolutions/conv-maxpool-4-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-4-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-4-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-4-filter/conv2d/bias:0\0225convolutions/conv-maxpool-4-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-4-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-4-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n2convolutions/conv-maxpool-5-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-5-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-5-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-5-filter/conv2d/bias:0\0225convolutions/conv-maxpool-5-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-5-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-5-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n\036fully-connected/dense/kernel:0\022#fully-connected/dense/kernel/Assign\032#fully-connected/dense/kernel/read:029fully-connected/dense/kernel/Initializer/random_uniform:08\001"
+        value: "\n\034fully-connected/dense/bias:0\022!fully-connected/dense/bias/Assign\032!fully-connected/dense/bias/read:02.fully-connected/dense/bias/Initializer/zeros:08\001"
+      }
+    }
+  }
+  collection_def {
+    key: "variables"
+    value {
+      bytes_list {
+        value: "\n\rglobal_step:0\022\022global_step/Assign\032\022global_step/read:02\037global_step/Initializer/zeros:0"
+        value: "\n\032EmbedSequence/embeddings:0\022\037EmbedSequence/embeddings/Assign\032\037EmbedSequence/embeddings/read:025EmbedSequence/embeddings/Initializer/random_uniform:08\001"
+        value: "\n2convolutions/conv-maxpool-2-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-2-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-2-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-2-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-2-filter/conv2d/bias:0\0225convolutions/conv-maxpool-2-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-2-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-2-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n2convolutions/conv-maxpool-3-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-3-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-3-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-3-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-3-filter/conv2d/bias:0\0225convolutions/conv-maxpool-3-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-3-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-3-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n2convolutions/conv-maxpool-4-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-4-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-4-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-4-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-4-filter/conv2d/bias:0\0225convolutions/conv-maxpool-4-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-4-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-4-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n2convolutions/conv-maxpool-5-filter/conv2d/kernel:0\0227convolutions/conv-maxpool-5-filter/conv2d/kernel/Assign\0327convolutions/conv-maxpool-5-filter/conv2d/kernel/read:02Mconvolutions/conv-maxpool-5-filter/conv2d/kernel/Initializer/random_uniform:08\001"
+        value: "\n0convolutions/conv-maxpool-5-filter/conv2d/bias:0\0225convolutions/conv-maxpool-5-filter/conv2d/bias/Assign\0325convolutions/conv-maxpool-5-filter/conv2d/bias/read:02Bconvolutions/conv-maxpool-5-filter/conv2d/bias/Initializer/zeros:08\001"
+        value: "\n\036fully-connected/dense/kernel:0\022#fully-connected/dense/kernel/Assign\032#fully-connected/dense/kernel/read:029fully-connected/dense/kernel/Initializer/random_uniform:08\001"
+        value: "\n\034fully-connected/dense/bias:0\022!fully-connected/dense/bias/Assign\032!fully-connected/dense/bias/read:02.fully-connected/dense/bias/Initializer/zeros:08\001"
+      }
+    }
+  }
+  signature_def {
+    key: "prediction"
+    value {
+      inputs {
+        key: "instances"
+        value {
+          name: "Placeholder:0"
+          dtype: DT_STRING
+          tensor_shape {
+            dim {
+              size: -1
+            }
+          }
+        }
+      }
+      outputs {
+        key: "class"
+        value {
+          name: "GatherV2:0"
+          dtype: DT_STRING
+          tensor_shape {
+            dim {
+              size: -1
+            }
+          }
+        }
+      }
+      outputs {
+        key: "probabilities"
+        value {
+          name: "fully-connected/dense/BiasAdd:0"
+          dtype: DT_FLOAT
+          tensor_shape {
+            dim {
+              size: -1
+            }
+            dim {
+              size: 5
+            }
+          }
+        }
+      }
+      method_name: "tensorflow/serving/predict"
+    }
+  }
+  signature_def {
+    key: "serving_default"
+    value {
+      inputs {
+        key: "instances"
+        value {
+          name: "Placeholder:0"
+          dtype: DT_STRING
+          tensor_shape {
+            dim {
+              size: -1
+            }
+          }
+        }
+      }
+      outputs {
+        key: "class"
+        value {
+          name: "GatherV2:0"
+          dtype: DT_STRING
+          tensor_shape {
+            dim {
+              size: -1
+            }
+          }
+        }
+      }
+      outputs {
+        key: "probabilities"
+        value {
+          name: "fully-connected/dense/BiasAdd:0"
+          dtype: DT_FLOAT
+          tensor_shape {
+            dim {
+              size: -1
+            }
+            dim {
+              size: 5
+            }
+          }
+        }
+      }
+      method_name: "tensorflow/serving/predict"
+    }
+  }
+}

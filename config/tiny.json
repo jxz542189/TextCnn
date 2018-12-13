@@ -1,0 +1,32 @@
+{
+  "data": {
+    "base_path": "data/",
+    "processed_path": "tiny_processed_data",
+    "testset_size": 2,
+    "num_classes": 2,
+    "PAD_ID": 0
+  },
+  "model":{
+    "batch_size":3,
+    "embed_type": "rand",
+    "pretrained_embed": "",
+    "embed_dim": 32,
+    "num_filters": 16,
+    "filter_sizes":[2, 3, 4]
+  },
+  "train":{
+    "learning_rate":0.001,
+    "train_steps": 100,
+    "model_dir": "logs/rt-check_tiny",
+
+    "save_checkpoints_steps": 100,
+    "loss_hook_n_iter": 100,
+    "check_hook_n_iter": 10,
+    "min_eval_frequency": 10,
+    "print_verbose": true,
+    "debug": false
+  },
+  "slack":{
+    "webhook_url":""
+  }
+}

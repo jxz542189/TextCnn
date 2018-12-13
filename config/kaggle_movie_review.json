@@ -1,0 +1,41 @@
+{
+  "data": {
+    "type": "kaggle_movie_review",
+    "base_path": "data/",
+    "raw_data_path": "kaggle_movie_reviews/",
+    "processed_path": "kaggle_processed_data",
+    "testset_size": 25000,
+    "max_seq_length":50,
+    "num_classes": 5,
+    "PAD_ID": 0
+  },
+  "model":{
+    "batch_size":64,
+    "embed_type": "rand",
+    "pretrained_embed": "",
+    "embed_dim": 300,
+    "num_filters": 256,
+    "filter_sizes":[2, 3, 4, 5],
+    "dropout":0.5
+  },
+  "train":{
+    "learning_rate":0.00005,
+    "train_steps": 100000,
+    "model_dir": "logs/kaggle_movie_review",
+    "tf_random_seed": 1234,
+    "save_checkpoints_steps": 1000,
+    "loss_hook_n_iter": 1000,
+    "check_hook_n_iter": 1000,
+    "min_eval_frequency": 1000,
+    "print_verbose": true,
+    "debug": false,
+    "log_step_count_steps": 500,
+    "num_epochs":10,
+    "train_size": 131060
+  },
+  "slack":{
+    "webhook_url":""
+  },
+  "CUDA_VISIBLE_DEVICES":"0,1,2",
+  "model_name": "kaggle_movie_review"
+}
