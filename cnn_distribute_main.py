@@ -99,7 +99,7 @@ def input_fn(filename, mode=tf.estimator.ModeKeys.EVAL,
     if mode == tf.estimator.ModeKeys.TRAIN:
         dataset = dataset.repeat(None)
     else:
-        dataset = dataset.repeat(None)
+        dataset = dataset.repeat(1)
     dataset = dataset.prefetch(buffer_size)
 
     # dataset = dataset.map(lambda x,y:(process_text(x[TEXT_FEATURE_NAME]), parse_label_column(y)))
